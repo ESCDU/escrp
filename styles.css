@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Source+Code+Pro:ital,wght@0,500;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.forPoster {
+    max-width: 100%;
+    min-width: 300px;
+    height: auto;
+    }
+h1 {
+    font-family: 'Righteous', cursive;
+    color: blue;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contrib-table {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid orange !important;
+    padding: 15px !important;
+    text-align: center !important;
+}
+
+
+body {
+    background-image: url('');
+}
+
+.info-body {
+    font-size: 1.5rem;
+}
+
+
+
+footer{
+    background-color:rgb(240, 240, 240);
+    color: black;
+    text-align:center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: small;
+    margin-top: 50px;
+}
+
+
+
+.allButFooter {
+    min-height: calc(100vh - 40px);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .info-body {
+      font-size: 1rem;
+    }
+
+    #about, #policy, #contributors {
+        margin: 20px;
+    }
+
+    .contrib-table{
+        display: block;
+        margin: auto;
+        width: 300px;
+        overflow-x: auto;
+    }
+}
