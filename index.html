@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="allButFooter">
-      <h1 class="text-center mb-3 mt-3">ESC Research Portal</h1>
+      <!-- <h1 class="text-center mb-3 mt-3">ESC Research Portal</h1> -->
       <div style="text-align: center; padding-bottom: 30px">
           <img class="forPoster" src="./assets/poster.png" width="550px" height="339px"/>
       </div>
@@ -27,14 +27,17 @@
           </div> -->
 
           <div class="mb-5 mx-5">Navigating the vast expanse of the open web for research can feel overwhelming, especially for those new to the journey. It can be both hectic and demotivating. That's where the ESC Research Portal comes in to make things smoother for budding researchers. Our portal offers easily accessible social science-related data, tutorials, and other essentials. It is designed to help young researchers explore the research arena in a more structured and user-friendly way.</div>
-          <div id="populatePoint"></div>
+          <div class="m-4"><h3>Data Source Links</h3></div>
+          <div id="data_source"></div>
+          <!-- <div class="m-4"><h3>Research Tool Links</h3></div>
+          <div id="research_tools"></div> -->
       </div>
     </div>
 
     <footer>
-      <b>© Economics Study Center (ESC). All rights reserved. This website was developed through the diligent effort of the ESC Executive Committee for the term 2023-24.</b>
+      <b>“</b>When a man dies, his good deeds come to an end except three: ongoing charity, beneficial knowledge, and righteous offspring who will pray for him.<b>”</b>
       <br>
-      Special thanks to Sami Mohammed and Abrar Ahammed Bhuiyan for their valuable contributions.
+      (Sunan Ibn Mājah 237)
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -45,8 +48,10 @@
     <script>
 
         GetContent("./items.json").then(parsedJSON => {
-            const container = document.getElementById("populatePoint");
-            container.innerHTML = MakeAccordion(parsedJSON);
+            const data_source_container = document.getElementById("data_source");
+            const research_tools_container = document.getElementById("research_tools");
+            data_source_container.innerHTML = MakeAccordion(parsedJSON);
+            // research_tools_container.innerHTML = MakeAccordion(parsedJSON);
 
         }).catch(error => {
             console.error('Error in MakeParsedVariableArr:', error);

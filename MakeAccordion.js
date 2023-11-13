@@ -12,6 +12,7 @@ function MakeAccordion(parsedJSON) {
                 </button>
                 </h1>
                 <div id="collapseitem${i}" class="accordion-collapse collapse" aria-labelledby="item${i}" data-bs-parent="#accordionExample">
+                <div class="m-3">${item_desc}</div>
                 <div class="accordion-body">
                     <ul>`;
 
