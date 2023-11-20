@@ -1,10 +1,3 @@
-$(document).ready(function() {
-    if (sessionStorage.getItem('#exampleModalCenter') !== 'true') {
-        $('#exampleModalCenter').modal('show');
-        sessionStorage.setItem('#exampleModalCenter','true');     
-    }
-});
-
 $(document).ready(function () {
     $(".collapse").on("shown.bs.collapse", function () {
         localStorage.setItem("coll_" + this.id, true);
