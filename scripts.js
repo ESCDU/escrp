@@ -1,7 +1,9 @@
-function openModal(customText) {
+function openModal(mTitle, mContent) {
   var modalContent = document.getElementById('modalContent');
-  modalContent.textContent = customText;
-
+  var modalTitle = document.getElementById('modalTitle');
+  modalContent.textContent = mContent;
+  modalTitle.textContent = mTitle;
+  
   var myModal = new bootstrap.Modal(document.getElementById('infoModal'));
   myModal.show();
 }
