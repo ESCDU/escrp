@@ -20,7 +20,8 @@ function MakeAccordion(parsedJSON) {
         for(let j=0; j<Object.keys(parsedJSON[i]).length-2; j++) {
             accordionCode += `<li class="list-group-item py-3">
             ${parsedJSON[i][`text${j}`][0]} 
-            <a href="${parsedJSON[i][`text${j}`][1]}" target="_blank" class="btn btn-primary float-end" role="button">visit</a></li>`
+            <a onclick="openModal('${parsedJSON[i][`text${j}`][2]}')" target="_blank" class="btn btn-outline-info mx-2 float-end" role="button">About</a>
+            <a href="${parsedJSON[i][`text${j}`][1]}" target="_blank" class="btn btn-outline-primary float-end" role="button">Visit</a></li>`
         }
 
         accordionCode += `</ul></div></div></div>`;

@@ -2,6 +2,7 @@
 
 import json
 import openpyxl
+import os
 from pprint import pprint
 
 
@@ -36,6 +37,12 @@ def sheetToDictionary(sheet, title, desc):
 
     return return_dic
 
+def deletePreviousJson(fileNames):
+    for name in fileNames:
+        fileName = f"{name}.json"
+        if os.path.exists(fileName):
+            os.remove(fileName)
+
 
 def getPartialName(wb_sheet_names, fullName):
     for name in wb_sheet_names:
@@ -57,7 +64,7 @@ def XlToJson(xlName):
             "Featured Research":["Nobel Winning Papers","Beginner Friendly Papers","Past Monographs and Assignments","ESC Conducted Researches","Systematic Reviews and Meta Analyses","Economics Department Researches"]
             }
 
-    # pprint(wb_sheet_names)
+    deletePreviousJson(class_with_sname.keys())
     
     for key in class_with_sname.keys():
         sheet_data = []
@@ -73,4 +80,9 @@ def XlToJson(xlName):
             json.dump(sheet_data, of)
 
     
-XlToJson('./target.xlsx')
+
+
+if __name__ == "__main__":
+    XlToJson('./target.xlsx')
+
+

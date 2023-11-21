@@ -1,3 +1,11 @@
+function openModal(customText) {
+  var modalContent = document.getElementById('modalContent');
+  modalContent.textContent = customText;
+
+  var myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+  myModal.show();
+}
+
 $(document).ready(function () {
     $(".collapse").on("shown.bs.collapse", function () {
         localStorage.setItem("coll_" + this.id, true);
