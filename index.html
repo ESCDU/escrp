@@ -60,33 +60,33 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script defer src="./scripts.js"></script>
-    <script src="./GetContent.js"></script>
-    <script src="./MakeAccordion.js"></script>
+    <script defer src="./js/scripts.js"></script>
+    <script src="./js/GetContent.js"></script>
+    <script src="./js/MakeAccordion.js"></script>
     <script>
 
-        GetContent("./Data Source Links.json").then(parsedJSON => {
+        GetContent("./json/Data Source Links.json").then(parsedJSON => {
             const data_source_container = document.getElementById("data_source");
             data_source_container.innerHTML = MakeAccordion(parsedJSON);
         }).catch(error => {
             console.error('Error in MakeParsedVariableArr:', error);
         });
 
-        GetContent("./Research Tool Links.json").then(parsedJSON => {
+        GetContent("./json/Research Tool Links.json").then(parsedJSON => {
             const research_tools_container = document.getElementById("research_tools");
             research_tools_container.innerHTML = MakeAccordion(parsedJSON);
         }).catch(error => {
             console.error('Error in MakeParsedVariableArr:', error);
         });
 
-        GetContent("./Featured Research.json").then(parsedJSON => {
+        GetContent("./json/Featured Research.json").then(parsedJSON => {
             const featured_research_container = document.getElementById("featured_research");
             featured_research_container.innerHTML = MakeAccordion(parsedJSON);
         }).catch(error => {
             console.error('Error in MakeParsedVariableArr:', error);
         });
 
-        GetContent("./Community.json").then(parsedJSON => {
+        GetContent("./json/Community.json").then(parsedJSON => {
             const community_container = document.getElementById("community");
             community_container.innerHTML = MakeAccordion(parsedJSON);
         }).catch(error => {

@@ -18,10 +18,14 @@ function MakeAccordion(parsedJSON) {
                     <ul>`;
 
         for(let j=0; j<Object.keys(parsedJSON[i]).length-2; j++) {
+            let title = convertSpecialCharacters(parsedJSON[i][`text${j}`][0]);
+            let link = parsedJSON[i][`text${j}`][1];
+            let desc = convertSpecialCharacters(parsedJSON[i][`text${j}`][2]);
+
             accordionCode += `<li class="list-group-item py-3">
-            ${parsedJSON[i][`text${j}`][0]} 
-            <a onclick="openModal('${parsedJSON[i][`text${j}`][0]}', '${parsedJSON[i][`text${j}`][2]}')" target="_blank" class="btn btn-outline-info mx-2 float-end" role="button">About</a>
-            <a href="${parsedJSON[i][`text${j}`][1]}" target="_blank" class="btn btn-outline-primary float-end" role="button">Visit</a></li>`
+            ${title} 
+            <a onclick="openModal('${title}', '${desc}')" target="_blank" class="btn btn-outline-info mx-2 float-end" role="button">About</a>
+            <a href="${link}" target="_blank" class="btn btn-outline-primary float-end" role="button">Visit</a></li>`
         }
 
         accordionCode += `</ul></div></div></div>`;
@@ -29,3 +33,15 @@ function MakeAccordion(parsedJSON) {
 
     return accordionCode;
 }
+
+
+function convertSpecialCharacters(inputString) {
+    const regex = /['",]/g;
+    const replacements = {
+      "'": "\\'",
+      '"': '&quot;',
+      ',': '\\,'
+    };
+  
+    return inputString.replace(regex, match => replacements[match]);
+  }
