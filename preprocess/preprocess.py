@@ -6,12 +6,14 @@ import os
 from pprint import pprint
 
 
-def sheetToDictionary(sheet, title, desc):
+def sheetToDictionary(sheet, title, desc, idx):
     return_dic = {}
     return_dic['title'] = title
     return_dic['desc'] = desc
     count = 0
     key = None
+
+    search_list = []
 
 
 
@@ -25,6 +27,10 @@ def sheetToDictionary(sheet, title, desc):
                 else:
                     return_dic[key] = []
                     return_dic[key].append(elem)
+                    search_list.append({
+                        "id": f"subitem_{title.split()[0]}_{idx}_{count}",
+                        "sstring": f"{title} -> {elem}"
+                        })
 
         if key and len(return_dic[key]) != 3:
             if len(return_dic[key]) == 2:
@@ -35,7 +41,7 @@ def sheetToDictionary(sheet, title, desc):
 
         count += 1
 
-    return return_dic
+    return return_dic, search_list
 
 def deletePreviousJson(fileNames):
     for name in fileNames:
@@ -64,20 +70,27 @@ def XlToJson(xlName):
             "Featured Research":["Nobel Winning Papers","Beginner Friendly Papers","Past Monographs and Assignments","ESC Conducted Researches","Systematic Reviews and Meta Analyses","Economics Department Researches"]
             }
 
+    search = []
     deletePreviousJson(class_with_sname.keys())
     
     for key in class_with_sname.keys():
         sheet_data = []
-        for fullName in class_with_sname[key]:
+        for idx, fullName in enumerate(class_with_sname[key]):
             partialName = getPartialName(wb_sheet_names, fullName)
             if partialName:
                 sheetName = wb[partialName]
-                sheet_data.append(sheetToDictionary(sheetName, fullName, ''))
+                return_dic, return_serach_list = sheetToDictionary(sheetName, fullName, '', idx)
+                search += return_serach_list
+                sheet_data.append(return_dic)
             else:
                 print("error")
 
         with open(f"{key}.json", 'a') as of:
             json.dump(sheet_data, of)
+
+
+    with open(f"search.json", 'w') as of:
+        json.dump(search, of)
 
     
 

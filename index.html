@@ -29,6 +29,7 @@
         </div>
       </div>
 
+
       <!-- <h1 class="text-center mb-3 mt-3">ESC Research Portal</h1> -->
       <div style="text-align: center;">
           <img class="forPoster" src="./assets/poster.png" width="550px" height="339px"/>
@@ -36,9 +37,19 @@
 
       <div class="container tagline">A Nexus for Navigating Research</div>
 
+
       <div class="container accordion" role="group" id="accordionExample">
 
           <div class="mb-5 mx-5">Navigating the vast expanse of the open web for research can feel overwhelming, especially for those new to the journey. It can be both hectic and demotivating. That's where the ESC Research Portal comes in to make things smoother for budding researchers. Our portal offers easily accessible social science-related data, tutorials, and other essentials. It is designed to help young researchers explore the research arena in a more structured and user-friendly way.</div>
+
+          <div class="container" id="search">
+            <input class="form-control" type="text" placeholder="Search..." id="searchInput" oninput="search(event)" >
+            <div id="dropdown" class="dropdown-content"></div>
+            <div class=" d-flex justify-content-center" id="serachButton">
+              <button class="btn btn-primary d-flex align-item-center m-4" onclick='showItem()'>Search</button>
+            </div>	
+          </div>
+
           <div class="m-4"><h3>Data Source Links</h3></div>
           <div id="data_source"></div>
           <div class="m-4"><h3>Research Tool Links</h3></div>
@@ -61,6 +72,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script defer src="./js/scripts.js"></script>
+    <script defer src="./js/search.js"></script>
+    <script defer src="./js/ShowItem.js"></script>
     <script src="./js/GetContent.js"></script>
     <script src="./js/MakeAccordion.js"></script>
     <script>

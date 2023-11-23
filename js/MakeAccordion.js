@@ -22,7 +22,7 @@ function MakeAccordion(parsedJSON) {
             let link = parsedJSON[i][`text${j}`][1];
             let desc = convertSpecialCharacters(parsedJSON[i][`text${j}`][2]);
 
-            accordionCode += `<li class="list-group-item py-3">
+            accordionCode += `<li class="list-group-item py-3" id="subitem_${idName}_${i}_${j}">
             ${title} 
             <a onclick="openModal('${title}', '${desc}')" target="_blank" class="btn btn-outline-info mx-2 float-end" role="button">About</a>
             <a href="${link}" target="_blank" class="btn btn-outline-primary float-end" role="button">Visit</a></li>`
